@@ -77,7 +77,8 @@
     </div>
     <div class="button-group">
       <button id="projection-mercator" onclick="updateMap({projection: 'mercator'})">Web Mercator (EPSG:3857)</button>
-      <button id="projection-albers" onclick="updateMap({projection: 'albers'})" title="Mapbox Only!">Albers (Iceland)</button>
+      <button id="projection-albers-reykjavik-is" onclick="updateMap({projection: 'albers-reykjavik-is'})" title="Mapbox Only!">Albers (Iceland)</button>
+      <button id="projection-albers-aukland-nz" onclick="updateMap({projection: 'albers-aukland-nz'})" title="Mapbox Only!">Albers (New Zealand)</button>
       <button id="projection-globe" onclick="updateMap({projection: 'globe'})">Globe</button>
     </div>
   </div>
@@ -350,11 +351,18 @@
       style: style,
     }
 
-    if (projection == "albers") {
+    if (projection == "albers-reykjavik-is") {
       mapConfig.projection = {
         name: 'albers',
         center: [-21.92, 64.14],
         parallels: [-21.92, 64.14]
+      }
+    }
+    else if (projection == "albers-aukland-nz") {
+      mapConfig.projection = {
+        name: 'albers',
+        center: [174.76176, -36.82622],
+        parallels: [174.76176, -36.82622]
       }
     }
     else if (projection == "globe") {
